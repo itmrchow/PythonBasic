@@ -35,7 +35,12 @@ print(letter[-1::-1])  # 反向輸出
 print(len(letter))  # 取長
 
 # Tuple : 不可異動
+tuple = ('apple', 'banana', 'orange', 3)
+tuple2 = ('t', )
+print(tuple[0:])
+print(tuple2)
+
+# Set : 重複者被刪除
 
 
-# Set
 # Dictionary
