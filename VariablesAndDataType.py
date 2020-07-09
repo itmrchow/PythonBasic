@@ -40,7 +40,27 @@ tuple2 = ('t', )
 print(tuple[0:])
 print(tuple2)
 
-# Set : 重複者被刪除
+# Set : 重複者被刪除，沒有順序
+set1 = {"abc", "abc", "tttt"}
+print(set1)
 
+# 集合運算
+set_a = set("abcdef")
+set_b = set("defghi")
+print(set_a)
+print(set_a - set_b)  # 差集
+print(set_a | set_b)  # 聯集
+print(set_a & set_b)  # 交集
+print(set_a ^ set_b)  # 同時不存在的
 
 # Dictionary
+dict = {}
+dict["Jeff"] = 27
+dict["Tony"] = 23
+print(dict)
+
+dict2 = {"tea": 20, "coke": 30}
+print(dict2)
+
+print(dict.keys())  # 取key
+print(dict.values())  # 取values
