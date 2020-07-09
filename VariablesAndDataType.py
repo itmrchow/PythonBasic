@@ -11,10 +11,10 @@ print(3 % 2)  # 1
 print(2 ** -3)  # 2的次方
 
 # String
-str = "milk"
-print(str)
-print(str[0:2])
-print(str[-1:-4])
+str1 = "milk"
+print(str1)
+print(str1[0:2])
+print(str1[-1:-4])
 
 # List : 可異動
 t = ['a', 'b', 'c', 'd', 'e', 'x']
@@ -35,9 +35,9 @@ print(letter[-1::-1])  # 反向輸出
 print(len(letter))  # 取長
 
 # Tuple : 不可異動
-tuple = ('apple', 'banana', 'orange', 3)
+tuple1 = ('apple', 'banana', 'orange', 3)
 tuple2 = ('t', )
-print(tuple[0:])
+print(tuple1[0:])
 print(tuple2)
 
 # Set : 重複者被刪除，沒有順序
@@ -54,13 +54,25 @@ print(set_a & set_b)  # 交集
 print(set_a ^ set_b)  # 同時不存在的
 
 # Dictionary
-dict = {}
-dict["Jeff"] = 27
-dict["Tony"] = 23
+dict1 = {}
+dict1["Jeff"] = 27
+dict1["Tony"] = 23
 print(dict)
 
 dict2 = {"tea": 20, "coke": 30}
 print(dict2)
 
-print(dict.keys())  # 取key
-print(dict.values())  # 取values
+print(dict1.keys())  # 取key
+print(dict1.values())  # 取values
+
+# dataType transformation
+print(int("123"))  # 轉整數
+print(float("12.3"))  # 轉浮點
+print(str(123))  # 轉可讀字串
+reprStr = "Hello world!\n"
+print(str(reprStr))  # 轉編譯器可讀 ->定義一些在例項執行
+print(repr(reprStr))
+print(eval("33+33"))
+
+# set tuple list 轉換
+print(tuple(t))
