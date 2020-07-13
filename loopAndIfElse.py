@@ -18,3 +18,17 @@ while index < 10:
     else:
         print(index, ":奇數")
     index += 1
+
+# for
+fruit_list = ["apple", "banana", "mango"]
+for fruit in fruit_list:
+    print(fruit)
+else:
+    print("End")
+
+# for range
+for x in range(3, 5):
+    print(x)
+
+for x in range(len(fruit_list)):
+    print(x, fruit_list[x])
