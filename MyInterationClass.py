@@ -5,16 +5,39 @@ class MyClass:
         return self
 
     # 返回下一個迭代器對象
+    # def __next__(self):
+    #     x = self.a
+    #     self.a += 1
+    #     return x
+
     def __next__(self):
-        x = self.a
-        self.a += 1
-        return x
+        if(self.a <= 20):
+            x = self.a
+            self.a += 1
+            return x
+        else:
+            raise StopIteration
+
+    # 產生器
+    def fibonacci(self, n):
+        a, b, counter = 0, 1, 0
+        while True:
+            if counter > n:
+                return
+
+            yield a
+            a, b = b, a+b
+            counter += 1
 
 
 myClass = MyClass()
 myIter = iter(myClass)
+fibonacci = myClass.fibonacci(10)
 
 print("MyIteration")
-print(next(myIter))
-print(next(myIter))
-print(next(myIter))
+for i in myIter:
+    print(i)
+
+print("yield method")
+for f in fibonacci:
+    print(f)
