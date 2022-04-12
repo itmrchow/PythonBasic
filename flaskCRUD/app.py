@@ -13,4 +13,6 @@ api.add_resource(User, "/user/<string:name>")
 api.add_resource(Users, "/users")
 
 if __name__ == "__main__":
+    from common.ma import ma
+    ma.init_app(app)
     app.run(debug=True)
