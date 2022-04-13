@@ -1,12 +1,14 @@
 from common.db import db
+from models.post import PostModel
 
 
 class UserModel(db.Model):
-    __tablename__ = 'users'
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120))
+    posts = db.relationship(PostModel, backref="users", lazy=True)
 
     def __init__(self, name, email, password):
         self.name = name

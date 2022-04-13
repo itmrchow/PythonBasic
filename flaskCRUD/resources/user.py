@@ -9,48 +9,35 @@ users_schema = UserSchema(many=True)
 
 
 class User(Resource):
-
     def get(self, name):
         user = UserModel.get_user(name)
         if not user:
-            return {
-                'message': 'username not exist!'
-            }, 403
+            return {"message": "username not exist!"}, 403
         return user_schema.dump(user)
 
     def post(self, name):
         result = user_schema.load(request.json)
-        user = UserModel(name, result['email'], result['password'])
+        user = UserModel(name, result["email"], result["password"])
         user.add_user()
 
-        return {
-            'message': 'Insert user success',
-            'user': user_schema.dump(user)
-        }
+        return {"message": "Insert user success", "user": user_schema.dump(user)}
 
     def put(self, name):
         result = user_schema.load(request.json)
         user = UserModel.get_user(name)
 
         if not user:
-            return {
-                'message': 'username not exist!'
-            }, 403
+            return {"message": "username not exist!"}, 403
 
         user.name = name
-        user.email = result['email']
-        user.password = result['password']
+        user.email = result["email"]
+        user.password = result["password"]
         user.update_user()
-        return {
-            'message': 'Update user success',
-            'user': user_schema.dump(user)
-        }
+        return {"message": "Update user success", "user": user_schema.dump(user)}
 
     def delete(self, name):
         UserModel.delete_user(name)
-        return {
-            'message': 'Delete done'
-        }
+        return {"message": "Delete done"}
 
     # def patch(self, name):
     #     find = [item for item in users if item['name'] == name]
@@ -77,7 +64,4 @@ class Users(Resource):
     def get(self):
         users = UserModel.get_all_users()
         dump_users = users_schema.dump(users)
-        return {
-            'message': '',
-            'users': dump_users
-        }
+        return {"message": "", "users": dump_users}
